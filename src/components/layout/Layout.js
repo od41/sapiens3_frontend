@@ -6,7 +6,7 @@ function Layout({children}) {
   return (
     <>
       <Navbar />
-      <main className="page landing-page" style={{background: "var(--bs-white)", marginTop: '90px   '}}>
+      <main className="page landing-page" style={{background: "var(--bs-white)",}}>
         {children}
       </main>
       <Footer />

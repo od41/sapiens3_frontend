@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import petchaLogo from 'assets/img/brand/logo.png'
+
 function Navbar() {
   const cta_style = {
     fontWeight: "bold",
@@ -16,7 +18,8 @@ function Navbar() {
       <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
         <div className="container">
           <Link className="navbar-brand logo" to="/">
-            <strong>LOGO HERE</strong>
+            {/* <strong>LOGO HERE</strong> */}
+            <img src={petchaLogo} height={20} alt="Petcha logo" />
           </Link>
           <button
             data-bs-toggle="collapse"
