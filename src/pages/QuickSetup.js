@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import { Container, Row, Col, Image, Badge, Button, ToggleButton, Spinner, ButtonGroup  } from 'react-bootstrap';
+import { Container, Row, Col, Image, Badge, Button, ToggleButton, Spinner, ButtonGroup,
+  Form,
+  } from 'react-bootstrap';
 
 import quickSetup from 'assets/img/scenery/quick_setup.jpg'
 
@@ -29,52 +31,51 @@ function QuickSetup() {
                     <div className="getting-started-info">
                         <p>Fill this form and we will get you started right away.</p>
                     </div>
-                    <form>
-                        <div className="row">
-                            <div className="col-sm-6">
-                                <div className="form-group mb-3"><label className="form-label">Date of Birth</label>
-                                  <input className="form-control" type="text" style={{borderRadius: "20px"}} />
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group mb-3"><label className="form-label">Display Image</label>
-                                  <input className="form-control" type="text" style={{borderRadius: "16px"}} />
-                                </div>
-                            </div>
-                        </div>
-                        <Row className="" style={{textAlign: "left"}}>
-                            <Col sm={1} className="col-sm-1 col-lg-11 col-xl-10" style={{width: "auto"}}>
-                                <div className="form-group mb-3"><label className="form-label">Gender</label></div>
-                                <div className="form-group mb-3" style={{textAlign: "center", width: "556px"}}>
-                                    <ButtonGroup className="btn-group" role="group" style={{textAlign: "center", borderRadius: 0}}>
-                                      {gendersList.map((gender, i) => <ToggleButton 
-                                        key={i}
-                                        id={`radio-${i}`}
-                                        type="radio"
-                                        // variant={i % 2 ? 'outline-success' : 'outline-danger'}
-                                        variant={'outline-dark'}
-                                        width="120px"
-                                        name="radio"
-                                        value={gender.value}
-                                        checked={genderValue === gender.value}
-                                        onChange={(e) => setGenderValue(e.currentTarget.value)}
-                                      >{gender.name}</ToggleButton>)}
-                                      
-                                    </ButtonGroup>
-                                </div>
-                            </Col>
+                    <Form>
+                      <Row className="">
+                          <Form.Group as={Col} className="mb-3" controlId="formDateofBirth">
+                            <Form.Label>Date of birth</Form.Label>
+                            <Form.Control type="date" placeholder="Enter date of birth" />
+                          </Form.Group>
+
+                          <Form.Group as={Col}  className="mb-3" controlId="formDispayPhoto">
+                            <Form.Label>Display Image</Form.Label>
+                            <Form.Control type="file" placeholder="Upload display photo" />
+                          </Form.Group>
                         </Row>
-                        <Row className="row">
-                            <Col sm={6} lg={12} className="col-sm-6 col-lg-12">
-                                <div className="form-group mb-3"><label className="form-label">Desired Location</label>
-                                  <input className="form-control" type="text" style={{borderRadius: "20px"}} />
-                                </div>
-                            </Col>
-                        </Row>
-                    </form>
-                    <div className="getting-started-info"><button className="btn btn-outline-primary btn-lg" type="button" style={{"background: var(--bs-gray-dark);color: var(--bs-white);border-radius: 15px;text-align: center;padding-right: 25px;margin-top: 11px;":""}}>Find a roomie</button>
-                        <p></p>
-                    </div>
+                        <Form.Group as={Col}  className="mb-3" controlId="formGender">
+                            <Form.Label>Gender</Form.Label>
+                            <ButtonGroup className="btn-group d-grid gap-2 d-md-block" role="group" style={{textAlign: "center", borderRadius: 0}}>
+                              {gendersList.map((gender, i) => <ToggleButton 
+                                key={i}
+                                className="w-50"
+                                id={`radio-${i}`}
+                                type="radio"
+                                // variant={i % 2 ? 'outline-success' : 'outline-danger'}
+                                variant={'outline-dark'}
+                                // width="120px"
+                                name="radio"
+                                value={gender.value}
+                                checked={genderValue === gender.value}
+                                onChange={(e) => setGenderValue(e.currentTarget.value)}
+                              >{gender.name}</ToggleButton>)}
+                              
+                            </ButtonGroup>
+                          </Form.Group>
+
+                          <Form.Group as={Col} className="mb-3" controlId="formDesiredLocation">
+                            <Form.Label>Desired Location</Form.Label>
+                            <Form.Control type="text" placeholder="Enter your desired location" />
+                          </Form.Group>
+
+                          <Form.Group className="mb-4" controlId="formHasApartment">
+                            <Form.Check type="checkbox" className="text-dark" label="I have an apartment and I am looking for a co-tenant" />
+                          </Form.Group>
+                          
+                          <Button variant="dark" type="submit">
+                            Find a roomie
+                          </Button>
+                      </Form>
                 </Col>
                 <div className="col-md-6">
                   <img className="img-thumbnail" alt="promo banner" data-aos="fade-up" data-aos-duration="100" src={quickSetup} />
