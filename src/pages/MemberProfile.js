@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import {useParams} from 'react-router-dom';
 
-import { Container, Row, Col, Image, Badge, Button,  } from 'react-bootstrap';
+import { Container, Row, Col, Image, Badge, Button, Spinner  } from 'react-bootstrap';
 
 import avatar1 from 'assets/img/avatars/user1.png'
 import defaultCover from 'assets/img/avatars/default_cover.png'
@@ -26,7 +26,12 @@ function MemberProfile() {
   console.log(profile)
 
   if (!isLoading || !profile) {
-    return <>Profile is loading</>
+    return <Container className="min-vh-100 d-flex justify-content-center align-items-center">
+              <Row className="">
+                <Spinner animation="border" className=""/>
+                <span className="visually-hidden">Data loading...</span>
+              </Row>
+            </Container>
   }
   return (
     <>
