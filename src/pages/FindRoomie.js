@@ -1,44 +1,6 @@
 import RoomieCard from 'components/Cards/RoomieCard'
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-
-const roomies_data = [
-  {
-    name: "Malik Kolade",
-    age: 25,
-    gender: 'male',
-    id: 123,
-    photo: 'https://location.com',
-  },
-  {
-    name: "Elias Slim Bansi",
-    age: 25,
-    gender: 'male',
-    id: 123,
-    photo: 'https://location.com',
-  },
-  {
-    name: "Elias Slim Bansi",
-    age: 25,
-    gender: 'male',
-    id: 123,
-    photo: 'https://location.com',
-  },
-  {
-    name: "Elias Slim Bansi",
-    age: 25,
-    gender: 'male',
-    id: 123,
-    photo: 'https://location.com',
-  },
-  {
-    name: "Elias Slim Bansi",
-    age: 25,
-    gender: 'male',
-    id: 123,
-    photo: 'https://location.com',
-  },
-]
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 
 const heading2 = {
   fontWeight: '600',
@@ -47,6 +9,23 @@ const heading2 = {
 }
 
 function FindRoomie() {
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [roomies, setRoomies] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const apiUrl = 'https://petcha.herokuapp.com/connect';
+    axios.get(apiUrl).then((roomie) => {
+      const allRoomies = roomie.data;
+      setRoomies(allRoomies);
+    });
+  }, [isLoading]);
+
+  if (!isLoading || roomies.length === 0) {
+    return <>Roomies data is loading</>
+  }
+
   return (
     <>
       {/* <Outlet /> */}
@@ -96,7 +75,7 @@ function FindRoomie() {
 
         <div className="container" style={{marginTop: "19px",}}>
           <div className="row">
-            {roomies_data.map((roomie, i) => (
+            {roomies.map((roomie, i) => (
               <RoomieCard key={i} roomie={roomie} />
             ))}
           </div>

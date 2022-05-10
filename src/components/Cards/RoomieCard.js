@@ -33,7 +33,7 @@ function RoomieCard({roomie}) {
             borderRadius: "70px",
             width: "100%",
  			position: "relative"}}>
-							<span className="profile-name"><h4>{roomie.name}</h4></span>
+							<span className="profile-name"><h4>{`${roomie.first_name} ${roomie.last_name}`}</h4></span>
 						</div>
 						<div className="d-flex justify-content-between" style={{display: "flex", width: "100%", height: '30px'}}>
 							<div className='d-flex justify-content-between'>
