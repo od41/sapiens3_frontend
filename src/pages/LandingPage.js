@@ -18,7 +18,7 @@ function LandingPage() {
                         <div className="getting-started-info">
                             <p>We're building a community of people who want to live sustainably, and we're making it easy for everyone to afford it.</p>
                         </div>
-                        <div className="getting-started-info"><Link to="/register" className="btn btn-outline-primary btn-lg" type="button" style={{background: "var(--bs-gray-dark)", color: "var(--bs-white)", borderRadius: "15px", textAlign: "center"}}>Find a roomie</Link>
+                        <div className="getting-started-info"><Link to="/quick-setup" className="btn btn-outline-primary btn-lg" type="button" style={{background: "var(--bs-gray-dark)", color: "var(--bs-white)", borderRadius: "15px", textAlign: "center"}}>Find a roomie</Link>
                             <p></p>
                         </div>
                     </div>

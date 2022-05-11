@@ -4,27 +4,124 @@ import {Container, Row, Spinner } from 'react-bootstrap';
 
 import RoomieCard from 'components/Cards/RoomieCard'
 
-const heading2 = {
-  fontWeight: '600',
-  fontSize: '32px',
-  color: '#0a0a0a'
-}
+const dummy_roomies = [
+  {
+    id: 1,
+    first_name: 'Kessi',
+    last_name: 'Darlington',
+    age: 28,
+    gender: 'female',
+    display_photo: 'https://images.pexels.com/photos/1006195/pexels-photo-1006195.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'true',
+  },
+  {
+    first_name: 'Elias',
+    last_name: 'Bansi',
+    age: 29,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/2876486/pexels-photo-2876486.png?auto=compress&cs=tinysrgb&h=750&w=1260',
+    connection_status: 'false',
+  },
+  {
+    first_name: 'Malik',
+    last_name: 'Kolade',
+    age: 30,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/936119/pexels-photo-936119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'true',
+  },
+  {
+    first_name: 'Mush',
+    last_name: 'Abdulrahman',
+    age: 25,
+    gender: 'female',
+    display_photo: 'https://images.pexels.com/photos/718978/pexels-photo-718978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'false',
+  },
+  {
+    first_name: 'Sosu',
+    last_name: 'Alfred',
+    age: 28,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/1405963/pexels-photo-1405963.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'true',
+  },
+  {
+    first_name: 'Mary',
+    last_name: 'Okwong',
+    age: 29,
+    gender: 'female',
+    display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
+    connection_status: 'false',
+  },
+  {
+    first_name: 'Kingsley',
+    last_name: 'Boakye',
+    age: 22,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'true',
+  },
+  {
+    first_name: 'Kelvin',
+    last_name: 'Bariche',
+    age: 25,
+    gender: 'female',
+    display_photo: 'https://images.pexels.com/photos/2033447/pexels-photo-2033447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'false',
+  },
+  {
+    first_name: 'Johnson',
+    last_name: 'Ojo',
+    age: 31,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/428333/pexels-photo-428333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'false',
+  },
+  {
+    first_name: 'Yaw',
+    last_name: 'Antwi-Owusu',
+    age: 24,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/2092450/pexels-photo-2092450.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'true',
+  },
+  {
+    first_name: 'Agatha',
+    last_name: 'Ambrose',
+    age: 20,
+    gender: 'male',
+    display_photo: 'https://images.pexels.com/photos/1820919/pexels-photo-1820919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    connection_status: 'false',
+  },
+]
 
 function FindRoomie() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [roomies, setRoomies] = useState([]);
 
-  useEffect(() => {
-    setIsLoading(true);
-    const apiUrl = 'https://petcha.herokuapp.com/members/profile';
-    axios.get(apiUrl).then((roomie) => {
-      const allRoomies = roomie.data;
-      setRoomies(allRoomies);
-    });
-  }, [isLoading]);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   const apiUrl = 'https://petcha.herokuapp.com/members/profile';
+  //   axios.get(apiUrl).then((roomie) => {
+  //     const allRoomies = roomie.data;
+  //     setRoomies(allRoomies);
+  //   });
+  // }, [isLoading]);
 
-  if (!isLoading || roomies.length === 0) {
+  useEffect(() => {
+    setRoomies(dummy_roomies);
+  }, [])
+
+  const heading2 = {
+    fontWeight: '600',
+    fontSize: '32px',
+    color: '#0a0a0a'
+  }
+
+  // if (!isLoading || roomies.length === 0) {
+    if (false) {
     return <Container className="min-vh-100 d-flex justify-content-center align-items-center">
               <Row className="">
                 <Spinner animation="border" className=""/>

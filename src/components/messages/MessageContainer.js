@@ -8,13 +8,13 @@ function MessageContainer({messages}) {
   return (
     <Container>
       <Row>
-        {messages != null ? messages.map((message, i) => <Message message={message} />) 
-          : <>No messages!</>  
+        {messages.length !== 0 ? messages.map((message, i) => <Message message={message} />) 
+          : <>You don't have any messages!</>  
         }
       </Row>
 
     <Container>
-      <Row className="position-relative">
+      <Row className="">
         <Form className="position-absolute w-100 " style={{bottom: 32, left: 0}}>
           <Container>
             <Row>

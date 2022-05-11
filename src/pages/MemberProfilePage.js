@@ -8,16 +8,16 @@ import { Container, Row, Col, Image, Badge, Button, Spinner  } from 'react-boots
 import MemberProfileTopPanel from 'components/profiles/MemberProfileTopPanel';
 
 const dummy_profile = {
-  first_name: 'Odafe',
-  last_name: 'Aror',
-  age: 25,
+  first_name: 'Kessi',
+  last_name: 'Darlington',
+  age: 28,
   preferred_location: 'Madina, Accra',
-  gender: 'male',
-  display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
+  gender: 'female',
+  display_photo: 'https://images.pexels.com/photos/1006195/pexels-photo-1006195.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   banner_photo: '',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere donec mattis vestibulum amet, nisl aliquet pellentesque pellentesque enim.',
+  description: "I'm a lawyer who's peace loving and loves to sleep and swim, not at the same time",
   education_level: 'university',
-  occupation: 'product designer',
+  occupation: 'lawyer',
   beliefs: 'christianity',
   preferred_address: 'Madina, Accra',
   interests: ['swimming', 'badmington'],
@@ -64,9 +64,9 @@ function MemberProfilePage() {
                 <h5>About</h5>
                 <p className=''>{profile.description == null ? `${profile.first_name} hasn't added a bio yet...` : profile.description}</p>
                 <div className='d-flex justify-content-start'>
-                  <Badge pill bg="light" text="dark">{profile.education_level}</Badge>
-                  <Badge pill bg="light" text="dark" className='ml-3'>{profile.occupation}</Badge>
-                  <Badge pill bg="light" text="dark" className='ml-3'>{profile.beliefs}</Badge>
+                  <Badge pill bg="light" text="dark" className='text-capitalize'>{profile.education_level}</Badge>
+                  <Badge pill bg="light" text="dark" className='ml-3 text-capitalize'>{profile.occupation}</Badge>
+                  <Badge pill bg="light" text="dark" className='ml-3 text-capitalize'>{profile.beliefs}</Badge>
 
                 </div>
               </div>
@@ -75,7 +75,7 @@ function MemberProfilePage() {
                 <h5>Interests</h5>
                 <div className='d-flex justify-content-start'>
                   {profile.interests == null ? <p>{`${profile.first_name} hasnt added any interests yet...`}</p> 
-                  : profile.interests.map((interest, i) => <Badge pill bg="light" text="dark" key={`interest-${i}`}>{interest}</Badge>)
+                  : profile.interests.map((interest, i) => <Badge pill bg="light" text="dark" className="text-capitalize" key={`interest-${i}`}>{interest}</Badge>)
                   }
 
                 </div>

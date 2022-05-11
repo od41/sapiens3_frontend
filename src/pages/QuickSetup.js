@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
-import { Container, Row, Col, Image, Badge, Button, ToggleButton, Spinner, ButtonGroup,
-  Form,
+import { Container, Row, Col, Button, ToggleButton, ButtonGroup,
+  Form, Spinner
   } from 'react-bootstrap';
+
+import { useNavigate } from 'react-router-dom';
 
 import quickSetup from 'assets/img/scenery/quick_setup.jpg'
 
 function QuickSetup() {
   const [checked, setChecked] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [genderValue, setGenderValue] = useState('male');
 
   const heading2 = {
@@ -20,6 +23,19 @@ function QuickSetup() {
     { name: 'Female', value: 'female' },
   ];
 
+  let navigate = useNavigate();
+
+  const onSubmitAfterDelay = (e) => {
+    e.preventDefault();
+    setLoading(true)
+    let data = new FormData(e.target)
+    let urlEncoded = new URLSearchParams(data)
+    setTimeout(() => {
+      navigate("/find-roomie", { state: urlEncoded })
+    }, 3000);
+  }
+
+
   return (
     
     <>
@@ -31,7 +47,7 @@ function QuickSetup() {
                     <div className="getting-started-info">
                         <p>Fill this form and we will get you started right away.</p>
                     </div>
-                    <Form>
+                    <Form onSubmit={onSubmitAfterDelay}>
                       <Row className="">
                           <Form.Group as={Col} className="mb-3" controlId="formDateofBirth">
                             <Form.Label>Date of birth</Form.Label>
@@ -73,7 +89,7 @@ function QuickSetup() {
                           </Form.Group>
                           
                           <Button variant="dark" type="submit">
-                            Find a roomie
+                             {isLoading ? <><Spinner animation="border" className="" size='sm'/> Loading...</> : 'Find a roomie'}
                           </Button>
                       </Form>
                 </Col>
