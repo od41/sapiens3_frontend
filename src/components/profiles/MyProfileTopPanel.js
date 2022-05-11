@@ -23,11 +23,11 @@ function MyProfileTopPanel({profile}) {
     <>
         <Container>
         <Row>
-            <Image fluid className="mw-100" style={{marginBottom: '-2.0rem', height: '200px', width:'auto', objectFit: 'cover'}} src={profile.banner_photo ? profile.banner_photo : defaultBanner} />
+            <Image fluid className="mw-100" style={{marginBottom: '-6.0rem', marginTop: '-2.6rem', height: '200px', width:'auto', objectFit: 'cover'}} src={profile.banner_photo ? profile.banner_photo : defaultBanner} />
           <Col>
           </Col>
         </Row> 
-        <Row className=''>
+        <Row className='px-5'>
             <Col xs={12} md={2}>
               <img 
                 className='rounded img-thumbnail rounded-circle' 
@@ -43,9 +43,9 @@ function MyProfileTopPanel({profile}) {
               <Row className=''>
                 <Col md={12}>
                   <div className='d-flex justify-content-start'>
-                    <Badge pill bg="light" text="dark">{profile.gender}</Badge>
-                    <Badge pill bg="light" text="dark" className='ml-3'>{profile.age} years</Badge>
-                    <Badge pill bg="light" text="dark" className='ml-3'>{profile.preferred_location}</Badge>
+                    <Badge pill bg="light" text="dark" className='text-capitalize'>{profile.gender}</Badge>
+                    <Badge pill bg="light" text="dark" className='ml-3 text-capitalize'>{profile.age} years</Badge>
+                    <Badge pill bg="light" text="dark" className='ml-3 text-capitalize'>{profile.preferred_location}</Badge>
 
                   </div>
                 </Col>

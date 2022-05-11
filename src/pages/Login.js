@@ -1,13 +1,26 @@
-import React from 'react'
-import { Container, Row, Col, Image, Badge, Button, ToggleButton, Spinner, ButtonGroup,
-  Form,
+import React, {useState} from 'react'
+import { Container, Row, Col, Button, Form, Spinner
   } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import loginImage from 'assets/img/scenery/login.png'
 
 function Login() {
+  const [isLoading, setLoading] = useState(false);
+
+  let navigate = useNavigate();
+
+  const onSubmitAfterDelay = (e) => {
+    e.preventDefault();
+    setLoading(true)
+    let data = new FormData(e.target)
+    let urlEncoded = new URLSearchParams(data)
+    setTimeout(() => {
+      navigate("/my-profile", { state: urlEncoded })
+    }, 2000);
+  }
+
   const heading2 = {
     fontWeight: '600',
     fontSize: '32px',
@@ -22,16 +35,16 @@ function Login() {
                <Col md={6} className="col-md-6" style={{borderRadius: "20"}}>
                    <h3 style={ {...heading2, marginTop: "123px"}} className="mb-4" >We exist to connect you with your ideal flatmate. </h3>
 
-                   <Form>
+                   <Form onSubmit={onSubmitAfterDelay}>
 
                         <Form.Group as={Col} className="mb-3" controlId="formEmailAddress">
                           <Form.Label>Email address</Form.Label>
-                          <Form.Control type="email" placeholder="youremail@email.com" />
+                          <Form.Control type="email" placeholder="youremail@email.com" value={"malik.kolade@gmail.com"} />
                         </Form.Group>
 
                         <Form.Group as={Col} className="mb-5" controlId="formPassword">
                           <Form.Label>Password</Form.Label>
-                          <Form.Control type="password" placeholder="Your Password" />
+                          <Form.Control type="password" placeholder="Your Password" value="adefaultpassword" />
                           <Form.Text as={Col} className="text-muted p-2 border  bg-light rounded">
                             <div>Minimum 8 characters</div>
                           </Form.Text>
@@ -39,7 +52,7 @@ function Login() {
                          
                         <Form.Group as={Col} className="mb-5" controlId="formPassword">
                           <Button variant="dark" className="w-50" type="submit">
-                            Login
+                            {isLoading ? <><Spinner animation="border" size='sm'/> Loading...</> : 'Login'}
                           </Button>
                           <br />
                           <br />
@@ -48,7 +61,9 @@ function Login() {
                         </Form.Group>
 
                           <div>
-                            <Link to="/create-account" as={Button} className='text-dark fw-bold text-center text-decoration-none'>Create a new account</Link>
+                            <Link to="/create-account" as={Button} className='text-dark fw-bold text-center text-decoration-none'>
+                              Create a new account
+                            </Link>
                           </div>
                      </Form>
                </Col>

@@ -32,7 +32,7 @@ function QuickSetup() {
     let urlEncoded = new URLSearchParams(data)
     setTimeout(() => {
       navigate("/find-roomie", { state: urlEncoded })
-    }, 3000);
+    }, 2000);
   }
 
 
@@ -51,12 +51,12 @@ function QuickSetup() {
                       <Row className="">
                           <Form.Group as={Col} className="mb-3" controlId="formDateofBirth">
                             <Form.Label>Date of birth</Form.Label>
-                            <Form.Control type="date" placeholder="Enter date of birth" />
+                            <Form.Control type="date" placeholder="Enter date of birth" value="1994-02-14" />
                           </Form.Group>
 
                           <Form.Group as={Col}  className="mb-3" controlId="formDispayPhoto">
                             <Form.Label>Display Image</Form.Label>
-                            <Form.Control type="file" placeholder="Upload display photo" />
+                            <Form.Control type="file" placeholder="Upload display photo" value="" />
                           </Form.Group>
                         </Row>
                         <Form.Group as={Col}  className="mb-3" controlId="formGender">
@@ -81,7 +81,7 @@ function QuickSetup() {
 
                           <Form.Group as={Col} className="mb-3" controlId="formDesiredLocation">
                             <Form.Label>Desired Location</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your desired location" />
+                            <Form.Control type="text" placeholder="Enter your desired location" value="Madina, Accra" />
                           </Form.Group>
 
                           <Form.Group className="mb-4" controlId="formHasApartment">
@@ -89,7 +89,7 @@ function QuickSetup() {
                           </Form.Group>
                           
                           <Button variant="dark" type="submit">
-                             {isLoading ? <><Spinner animation="border" className="" size='sm'/> Loading...</> : 'Find a roomie'}
+                             {isLoading ? <><Spinner animation="border" size='sm'/> Loading...</> : 'Find a roomie'}
                           </Button>
                       </Form>
                 </Col>

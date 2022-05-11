@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-import { Container, Row, Col, Image, Badge, Button, Offcanvas  } from 'react-bootstrap';
+import { Container, Row, Col, Image, Badge, Button, Offcanvas, Spinner  } from 'react-bootstrap';
 
 import MessageContainer from 'components/messages/MessageContainer'
 
@@ -25,7 +25,9 @@ const dummy_messages = [
 ]
 
 function MemberProfileTopPanel({profile}) {
-    const [dpIsLoaded, setDpIsLoaded] = useState(false);    
+    const [dpIsLoaded, setDpIsLoaded] = useState(false);  
+    const [isLoading, setIsLoading] = useState(false);  
+  const [isConnected, setIsConnected] = useState(false);
 
   const [show, setShow] = useState(false);
 
@@ -42,15 +44,23 @@ function MemberProfileTopPanel({profile}) {
         // marginBottom: '1rem',
     }
 
+    const onConnectionRequest = (e) => {
+      setIsLoading(true)
+      setTimeout(() => {
+        setIsConnected(true)
+        setIsLoading(false)
+      }, 3000);
+    }
+
   return (
     <>
         <Container>
         <Row>
-            <Image fluid className="mw-100" style={{marginBottom: '-6.0rem', height: '200px', width:'auto', objectFit: 'cover'}} src={profile.banner_photo ? profile.banner_photo : defaultBanner} />
+            <Image fluid className="mw-100" style={{marginBottom: '-6.0rem', marginTop: '-2.6rem', height: '200px', width:'auto', objectFit: 'cover'}} src={profile.banner_photo ? profile.banner_photo : defaultBanner} />
           <Col>
           </Col>
         </Row> 
-        <Row className='align-middle'>
+        <Row className='px-5'>
             <Col xs={12} md={2}>
               <img 
                     className='rounded img-thumbnail rounded-circle' 
@@ -75,7 +85,10 @@ function MemberProfileTopPanel({profile}) {
               </Row>
             </Col>
             <Col xs={12} md={3} className='d-flex flex-column align-items-center justify-content-end'>
-              <Button className='btn btn-dark w-100' onClick={handleShow}>Send message</Button>
+              {isConnected ? <Button className='btn btn-success w-100' onClick={handleShow}>Talk to {`${profile.first_name}`}</Button> 
+              : <Button className='btn btn-dark w-100' onClick={onConnectionRequest}>
+                {isLoading ? <><Spinner animation="border" size='sm'/> Sending request...</> : 'Request Connection'}
+              </Button> }
             </Col>
         </Row>
       </Container>

@@ -26,7 +26,6 @@ const dummy_profile = {
 }
 
 function MemberProfilePage() {
-  const params = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
   const [profile, setProfile] = useState({});
@@ -58,7 +57,7 @@ function MemberProfilePage() {
       <Row>
         <MemberProfileTopPanel profile={profile} />
         <Container>
-          <Row className="mt-5">
+          <Row className="mt-5 px-5">
             <Col xs={12} md={6}>
               <div className='w-100'>
                 <h5>About</h5>

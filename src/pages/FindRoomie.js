@@ -19,12 +19,12 @@ const dummy_roomies = [
     last_name: 'Bansi',
     age: 29,
     gender: 'male',
-    display_photo: 'https://images.pexels.com/photos/2876486/pexels-photo-2876486.png?auto=compress&cs=tinysrgb&h=750&w=1260',
+    display_photo: 'https://images.pexels.com/photos/1605399/pexels-photo-1605399.jpeg?auto=compress&cs=tinysrgb&w=600',
     connection_status: 'false',
   },
   {
-    first_name: 'Malik',
-    last_name: 'Kolade',
+    first_name: 'Odafe',
+    last_name: 'Aror',
     age: 30,
     gender: 'male',
     display_photo: 'https://images.pexels.com/photos/936119/pexels-photo-936119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -142,32 +142,32 @@ function FindRoomie() {
           <div className="w-100 filter" style={{ marginTop: "0px" }}>
             <form className="d-flex flex-md-row flex-column w-100 justify-content-between">
               <div className='d-flex justify-content-start col-md-6 col-sm-12'>
-                <input placeholder="Search By Location" size="13" style={{boxShadow: "0 0 2px #aaa"}}></input>
+                <input placeholder="Search By Location" size="13" style={{boxShadow: "0 0 2px #aaa"}} value="Madina, Accra" />
               </div>
               
               <div className='d-flex justify-content-between col-md-3 col-sm-12'>
-                <select>
-                  <option value="">Gender</option>
-                  <option value="">Male</option>
+                <select defaultValue="both">
+                  <option value="both">Both genders</option>
+                  <option value="male" >Male</option>
                   <option value="">Female</option>
                 </select>
-                <select>
-                  <option value="">Age</option>
+                <select defaultValue={'less-than-30'}>
+                  <option value="less-than-30">Less than 30</option>
                 </select>
               </div>
 
               <div className='d-flex justify-content-between col-md-3 col-sm-12'>
-                <select>
+                <select defaultValue="masters">
                   <option value="">Education</option>
                   <option value="">High School</option>
                   <option value="">Bachelors</option>
-                  <option value="">Masters</option>
+                  <option value="masters">Masters</option>
                   <option value="">PhD</option>
                 </select>
-                <select>
+                <select defaultValue="employee">
                   <option value="">Occupation</option>
                   <option value="">Student</option>
-                  <option value="">Employee</option>
+                  <option value="employee">Employee</option>
                   <option value="">Self-Employed</option>
                   <option value="">Other</option>
                 </select>

@@ -208,3 +208,10 @@ img {
   padding: 20px;
 }
 
+.nav-tabs .nav-link {
+  color: #0a0a0a !important;
+}
+
+.nav-tabs .nav-link.active {
+  font-weight: 700;
+}

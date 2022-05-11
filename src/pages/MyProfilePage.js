@@ -14,17 +14,17 @@ import MyProfileTopPanel from 'components/profiles/MyProfileTopPanel';
 import ApartmentCard from 'components/Cards/ApartmentCard';
 
 const dummy_profile = {
-  first_name: 'Odafe',
-  last_name: 'Aror',
+  first_name: 'Malik',
+  last_name: 'Kolade',
   age: 25,
   preferred_location: 'Madina, Accra',
   gender: 'male',
-  display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
+  display_photo: 'https://images.pexels.com/photos/2698935/pexels-photo-2698935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   banner_photo: '',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere donec mattis vestibulum amet, nisl aliquet pellentesque pellentesque enim.',
+  description: 'As the cookie that crumbles is sweet, so is the man that stumbles and stands will overcome defeat',
   education_level: 'university',
   occupation: 'product designer',
-  beliefs: 'christianity',
+  beliefs: 'islam',
   preferred_address: 'Madina, Accra',
   interests: ['swimming', 'badmington'],
   budget: 1200,
@@ -37,32 +37,24 @@ const dummy_favourites = [
     last_name: 'Darlington',
     age: 25,
     gender: 'female',
-    display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
+    display_photo: 'https://images.pexels.com/photos/1006195/pexels-photo-1006195.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     connection_status: 'true',
   },
   {
     first_name: 'Elias',
     last_name: 'Bansi',
-    age: 25,
+    age: 29,
     gender: 'male',
-    display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
+    display_photo: 'https://images.pexels.com/photos/1605399/pexels-photo-1605399.jpeg?auto=compress&cs=tinysrgb&w=600',
     connection_status: 'false',
   },
   {
-    first_name: 'Malik',
-    last_name: 'Kolade',
+    first_name: 'Odafe',
+    last_name: 'Aror',
     age: 30,
     gender: 'male',
-    display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
+    display_photo: 'https://images.pexels.com/photos/936119/pexels-photo-936119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     connection_status: 'true',
-  },
-  {
-    first_name: 'Mush',
-    last_name: 'Abdulrahman',
-    age: 25,
-    gender: 'female',
-    display_photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg',
-    connection_status: 'false',
   },
 ]
 
@@ -113,15 +105,15 @@ function MyProfilePage() {
     <Container className="min-vh-100" >
       <Row>
         <MyProfileTopPanel profile={profile} />
-        <Tabs defaultActiveKey="about" id="uncontrolled-tab-example" className="mb-3 mt-4">
-          <Tab eventKey="about" title="About">
+        <Tabs defaultActiveKey="about" id="uncontrolled-tab-example" className="mb-3 mt-4 px-5">
+          <Tab eventKey="about" className='text-dark px-4' title="About">
             <AboutMember profile={profile} />
           </Tab>
-          <Tab eventKey="favourites" title="Favourites">
+          <Tab eventKey="favourites" title="Favourites" style={{color: '#0a0a0a !important'}}>
             <Container>
               <Row>
                 {favourites != null ? <>
-                {favourites.map((fav, i) => <RoomieCard roomie={fav} key={`fav-${i}`}/> )}
+                  {favourites.map((fav, i) => <RoomieCard roomie={fav} key={`fav-${i}`}/> )}
                   </> : <p className='text-muted'>You haven't added any favourites</p>}
               </Row>
             </Container>

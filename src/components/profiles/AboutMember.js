@@ -13,9 +13,9 @@ function AboutMember({profile}) {
             <h5>About</h5>
             <p className=''>{profile.description == null ? `${profile.first_name} hasn't added a bio yet...` : profile.description}</p>
             <div className='d-flex justify-content-start'>
-                <Badge pill bg="light" text="dark">{profile.education_level}</Badge>
-                <Badge pill bg="light" text="dark" className='ml-3'>{profile.occupation}</Badge>
-                <Badge pill bg="light" text="dark" className='ml-3'>{profile.beliefs}</Badge>
+                <Badge pill bg="light" text="dark" className='text-capitalize'>{profile.education_level}</Badge>
+                <Badge pill bg="light" text="dark" className='ml-3 text-capitalize'>{profile.occupation}</Badge>
+                <Badge pill bg="light" text="dark" className='ml-3 text-capitalize'>{profile.beliefs}</Badge>
 
             </div>
             </div>
@@ -24,7 +24,7 @@ function AboutMember({profile}) {
             <h5>Interests</h5>
             <div className='d-flex justify-content-start'>
                 {profile.interests == null ? <p>{`${profile.first_name} hasnt added any interests yet...`}</p> 
-                : profile.interests.map((interest, i) => <Badge pill bg="light" text="dark" key={`interest-${i}`}>{interest}</Badge>)
+                : profile.interests.map((interest, i) => <Badge pill bg="light" text="dark" className="text-capitalize" key={`interest-${i}`}>{interest}</Badge>)
                 }
 
             </div>
