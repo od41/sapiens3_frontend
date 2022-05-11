@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import {Container, Row, Spinner } from 'react-bootstrap';
 
-import RoomieCard from 'components/cards/RoomieCard'
+import RoomieCard from 'components/Cards/RoomieCard'
 
 const heading2 = {
   fontWeight: '600',

@@ -8,10 +8,10 @@ import { Container, Row, Col, Image, Badge, Button, Spinner, Tabs, Tab  } from '
 import { Link } from 'react-router-dom';
 
 import AboutMember from 'components/profiles/AboutMember'
-import RoomieCard from 'components/cards/RoomieCard'
+import RoomieCard from 'components/Cards/RoomieCard'
 
 import MyProfileTopPanel from 'components/profiles/MyProfileTopPanel';
-import ApartmentCard from 'components/cards/ApartmentCard';
+import ApartmentCard from 'components/Cards/ApartmentCard';
 
 const dummy_profile = {
   first_name: 'Odafe',
