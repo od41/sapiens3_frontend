@@ -12,12 +12,14 @@ const dummy_messages = [
     data: 'Lorem ipsum',
     sender: 'Elias Slim',
     receiver: 'Odafe Aror',
+    date_sent: '12 May',
     status: 'true'
   },
   {
     data: 'Lorem ipsum',
     sender: 'Elias Slim',
     receiver: 'Odafe Aror',
+    date_sent: '12 May',
     status: 'false'
   }
 ]

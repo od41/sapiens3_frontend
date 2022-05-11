@@ -1,14 +1,42 @@
 import React from 'react'
 import Message from 'components/messages/Message'
 
+import { Link } from 'react-router-dom';
+import {Form, Col, Button, Row, Container } from 'react-bootstrap';
+
 function MessageContainer({messages}) {
   return (
-    <>
-      {messages != null ? messages.map((message, i) => <Message message={message} />) 
-        : <></>  
-    }
+    <Container>
+      <Row>
+        {messages != null ? messages.map((message, i) => <Message message={message} />) 
+          : <>No messages!</>  
+        }
+      </Row>
+
+    <Container>
+      <Row className="position-relative">
+        <Form className="position-absolute w-100 " style={{bottom: 32, left: 0}}>
+          <Container>
+            <Row>
+              <Form.Group as={Col} xs={12} md={9} className="px-0" controlId="formEmailAddress">
+                <Form.Control type="text" className="w-100" placeholder="Start typing" />
+              </Form.Group>
+              
+              <Form.Group as={Col} xs={12} md={3} className="pe-0" controlId="formPassword">
+                <Button variant="dark" className="w-100" type="submit">
+                  Send
+                </Button>
+              </Form.Group>
+            </Row>
+          </Container>
+        </Form>
+      </Row>
+    
+    </Container>
+
+    
       
-    </>
+    </Container>
   )
 }
 
