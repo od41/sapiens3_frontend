@@ -15,12 +15,11 @@ import Login from "pages/Login";
 import CreateAccount from "pages/CreateAccount";
 import QuickSetup from "pages/QuickSetup";
 import FindRoomie from "pages/FindRoomie";
-import MemberProfile from "pages/MemberProfile";
+import MemberProfile from "pages/MemberProfilePage";
+import MyProfilePage from "pages/MyProfilePage";
 
 
 function App() {
-
-  
 
   return (
     <div style={{ fontFamily: "Quicksand, sans-serif" }}>
@@ -31,6 +30,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="quick-setup" element={<QuickSetup />} />
           <Route path="create-account" element={<CreateAccount />} />
+          <Route path="my-profile" element={<MyProfilePage />} />
           <Route path="profile/:roomieId" element={<MemberProfile />} />
           <Route path="find-roomie" element={<FindRoomie />} />
         </Routes>

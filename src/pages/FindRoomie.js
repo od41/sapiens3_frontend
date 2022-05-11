@@ -1,6 +1,8 @@
-import RoomieCard from 'components/Cards/RoomieCard'
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import {Container, Row, Spinner } from 'react-bootstrap';
+
+import RoomieCard from 'components/cards/RoomieCard'
 
 const heading2 = {
   fontWeight: '600',
@@ -15,7 +17,7 @@ function FindRoomie() {
 
   useEffect(() => {
     setIsLoading(true);
-    const apiUrl = 'https://petcha.herokuapp.com/connect';
+    const apiUrl = 'https://petcha.herokuapp.com/members/profile';
     axios.get(apiUrl).then((roomie) => {
       const allRoomies = roomie.data;
       setRoomies(allRoomies);
@@ -23,7 +25,12 @@ function FindRoomie() {
   }, [isLoading]);
 
   if (!isLoading || roomies.length === 0) {
-    return <>Roomies data is loading</>
+    return <Container className="min-vh-100 d-flex justify-content-center align-items-center">
+              <Row className="">
+                <Spinner animation="border" className=""/>
+                <span className="visually-hidden">Data loading...</span>
+              </Row>
+            </Container>
   }
 
   return (
