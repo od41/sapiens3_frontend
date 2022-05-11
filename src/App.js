@@ -12,7 +12,7 @@ import "@fontsource/quicksand"
 import Layout from 'components/layout/Layout';
 import LandingPage from 'pages/LandingPage';
 import Login from "pages/Login";
-import Register from "pages/Register";
+import CreateAccount from "pages/CreateAccount";
 import QuickSetup from "pages/QuickSetup";
 import FindRoomie from "pages/FindRoomie";
 import MemberProfile from "pages/MemberProfile";
@@ -30,7 +30,7 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="quick-setup" element={<QuickSetup />} />
-          <Route path="register" element={<Register />} />
+          <Route path="create-account" element={<CreateAccount />} />
           <Route path="profile/:roomieId" element={<MemberProfile />} />
           <Route path="find-roomie" element={<FindRoomie />} />
         </Routes>

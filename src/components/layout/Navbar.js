@@ -32,22 +32,22 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link active" to="/">
+                <Link className="nav-link" to="/">
                   About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/features">
+                <Link className="nav-link" to="/">
                   FAQs
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/register" style={cta_style}>
+                <Link className="nav-link" to="/quick-setup" style={cta_style}>
                   FIND A ROOMIE
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="contact-us.html">
+                <Link className="nav-link" to="/login">
                   Login
                 </Link>
               </li>
